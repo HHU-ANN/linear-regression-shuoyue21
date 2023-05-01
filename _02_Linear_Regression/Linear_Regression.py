@@ -16,7 +16,7 @@ def lasso(data):
     tol = 0.0001  # 收敛阈值
     X,y = read_data()
     m,n = X.shape
-    theta = np.random.randn(n, 1)
+    theta = np.zeros(n)
     for i in range(max_iter):
         #Calculate the gradient
         grad = 1/m * np.dot(X.T, np.dot(X, theta) - y) + alpha * np.sign(theta)
