@@ -11,12 +11,12 @@ except ImportError as e:
 def ridge(data):
     X,y=read_data()
     #w = (X^T X)^-1 (X^T y)
-    w = np.matmul(np.linalg.inv(z),np.matmul(X.T,y))
+    w = np.matmul(np.linalg.inv(np.matmul(X.T,X)),np.matmul(X.T,y))
     return w @ data
 def lasso(data):
     alpha = 1e-12  # 正则化系数
-    max_iter = 1000000  # 最大迭代次数
-    tol = 0.00001  # 收敛阈值
+    max_iter = 5000000  # 最大迭代次数
+    tol = 0.000001  # 收敛阈值
     X,y = read_data()
     m,n = X.shape
     theta = np.zeros(n)
