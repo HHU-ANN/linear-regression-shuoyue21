@@ -16,12 +16,12 @@ def __init__(self, alpha=1e-12, max_iter=1000000, tol=0.0001):
         self.max_iter = max_iter  # 最大迭代次数
         self.tol = tol  # 收敛阈值
 def lasso(self,data):
-    X,y = read_data();
-    m,n = X.shape;
-    self.theta = np.zeros(n);
+    X,y = read_data()
+    m,n = X.shape
+    self.theta = np.random.randn(n, 1)
     for i in range(self.max_iter):
         #Calculate the gradient
-        grad = np.dot(X.T, np.dot(X, self.theta) - y) + self.alpha * np.sign(self.theta)
+        grad = 1/m * np.dot(X.T, np.dot(X, self.theta) - y) + self.alpha * np.sign(self.theta)
         #Update theta
         self.theta -= self.alpha * grad
         #Stopping condition
