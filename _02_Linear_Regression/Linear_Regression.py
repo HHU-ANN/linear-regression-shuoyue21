@@ -8,8 +8,11 @@ except ImportError as e:
     os.system("sudo pip3 install numpy")
     import numpy as np
 
-
-
+def ridge(data):
+    X,y=read_data()
+    #w = (X^T X)^-1 (X^T y)
+    w = np.linalg.inv(X.T @ X) @ X.T @ y
+    return w @ data
 def lasso(data):
     alpha = 1e-12  # 正则化系数
     max_iter = 100000  # 最大迭代次数
@@ -26,8 +29,7 @@ def lasso(data):
         if np.linalg.norm(grad) < tol:
             break
     return theta @ data
-def ridge(data):
-    return lasso(data)
+
 
 
 def read_data(path='./data/exp02/'):
