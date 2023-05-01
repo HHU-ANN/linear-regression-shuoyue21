@@ -8,8 +8,6 @@ except ImportError as e:
     os.system("sudo pip3 install numpy")
     import numpy as np
 
-def ridge(data):
-    pass
 
 
 def lasso(data):
@@ -28,6 +26,9 @@ def lasso(data):
         if np.linalg.norm(grad) < tol:
             break
     return theta @ data
+def ridge(data):
+    return lasso(data)
+
 
 def read_data(path='./data/exp02/'):
     x = np.load(path + 'X_train.npy')
