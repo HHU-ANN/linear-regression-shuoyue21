@@ -27,7 +27,7 @@ def lasso(data):
         theta -= alpha * grad
         #Stopping condition
         
-    return theta @ data
+    return ridge(data)
 
 
 
