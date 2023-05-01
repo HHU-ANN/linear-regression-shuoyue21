@@ -11,23 +11,23 @@ except ImportError as e:
 def ridge(data):
     pass
 
-def __init__(self, alpha=1e-12, max_iter=1000000, tol=0.0001):
-        self.alpha = alpha  # 正则化系数
-        self.max_iter = max_iter  # 最大迭代次数
-        self.tol = tol  # 收敛阈值
-def lasso(self,data):
+
+def lasso(data):
+    alpha = 1e-12  # 正则化系数
+    max_iter = 100000  # 最大迭代次数
+    tol = 0.0001  # 收敛阈值
     X,y = read_data()
     m,n = X.shape
-    self.theta = np.random.randn(n, 1)
-    for i in range(self.max_iter):
+    theta = np.random.randn(n, 1)
+    for i in range(max_iter):
         #Calculate the gradient
-        grad = 1/m * np.dot(X.T, np.dot(X, self.theta) - y) + self.alpha * np.sign(self.theta)
+        grad = 1/m * np.dot(X.T, np.dot(X, theta) - y) + alpha * np.sign(theta)
         #Update theta
-        self.theta -= self.alpha * grad
+        theta -= alpha * grad
         #Stopping condition
-        if np.linalg.norm(grad) < self.tol:
+        if np.linalg.norm(grad) < tol:
             break
-    return self.theta @ data
+    return theta @ data
 
 def read_data(path='./data/exp02/'):
     x = np.load(path + 'X_train.npy')
