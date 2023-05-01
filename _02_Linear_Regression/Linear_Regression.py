@@ -15,8 +15,8 @@ def ridge(data):
     return w @ data + 0.8
 def lasso(data):
     alpha = 1e-12  # 正则化系数
-    max_iter = 1000000  # 最大迭代次数
-    tol = 0.000001  # 收敛阈值
+    max_iter = 200000  # 最大迭代次数
+    tol = 0.00001  # 收敛阈值
     X,y = read_data()
     m,n = X.shape
     theta = np.zeros(n)
