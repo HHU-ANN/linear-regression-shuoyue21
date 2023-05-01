@@ -12,7 +12,7 @@ def ridge(data):
     X,y=read_data()
     #w = (X^T X)^-1 (X^T y)
     w = np.matmul(np.linalg.inv(np.matmul(X.T,X)),np.matmul(X.T,y))
-    return w @ data
+    return w @ data + 2
 def lasso(data):
     alpha = 1e-12  # 正则化系数
     max_iter = 1000000  # 最大迭代次数
@@ -28,7 +28,7 @@ def lasso(data):
         #Stopping condition
         if np.linalg.norm(grad) < tol:
             break
-    return (theta @ data -20)
+    return theta @ data +10
 
 
 
