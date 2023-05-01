@@ -22,7 +22,7 @@ def lasso(data):
     theta = np.zeros(n)
     for i in range(max_iter):
         #Calculate the gradient
-        grad = 1/m * np.dot(X.T, np.dot(X, theta) - y) + alpha * np.sign(theta)
+        grad = 1/m * np.matmul(X.T, np.matmul(X, theta) - y) + alpha * np.sign(theta)
         #Update theta
         theta -= alpha * grad
         #Stopping condition
