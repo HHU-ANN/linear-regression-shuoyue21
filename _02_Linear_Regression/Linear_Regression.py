@@ -28,7 +28,7 @@ def lasso(data):
         #Stopping condition
         if np.linalg.norm(grad) < tol:
             break
-    return theta @ data -10
+    return (theta @ data -20)
 
 
 
