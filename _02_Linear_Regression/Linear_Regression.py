@@ -26,8 +26,7 @@ def lasso(data):
         #Update theta
         theta -= alpha * grad
         #Stopping condition
-        if np.linalg.norm(grad) < tol:
-            break
+        
     return theta @ data
 
 
