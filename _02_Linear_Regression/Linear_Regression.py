@@ -27,9 +27,9 @@ def lasso(self,data):
         #Stopping condition
         if np.linalg.norm(grad) < self.tol:
             break
-    return np.dot(X,self.theta)
+    return self.theta @ data
 
 def read_data(path='./data/exp02/'):
     x = np.load(path + 'X_train.npy')
     y = np.load(path + 'y_train.npy')
-    return x, 
+    return x, y
